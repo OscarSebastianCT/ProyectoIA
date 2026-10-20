@@ -12,7 +12,8 @@ URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models"
 
 # 1) ARMAR PETICIÓN: recibe la pregunta y devuelve la url y el body
 def armar_peticion(pregunta):
-    url = f"{URL_BASE}/{MODELO}:generateContent?key={API_KEY}"
+    url = f"{URL_BASE}/{MODELO}:generateContent?key={API_KEY}" 
+    #se ve ejemplo: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3:generateContent?key=API_KEY"
 
     body = {
         "contents": [
@@ -36,7 +37,6 @@ def enviar_peticion(url, body):
 # 3) EXTRAER TEXTO: recibe los datos (JSON) y saca solo el texto de la respuesta
 def extraer_texto(datos):
     return datos["candidates"][0]["content"]["parts"][0]["text"]
-
 
 # CONEXIÓN: invoca las 3 funciones en orden
 def obtener_datos_de_pruebas(pregunta):
