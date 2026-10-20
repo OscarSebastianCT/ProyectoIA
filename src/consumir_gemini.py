@@ -1,32 +1,48 @@
-import os #sistema operativo
-import requests #posibilita generar peticiones
-from dotenv import load_dotenv #load_dotenv carga las variables de entorno
+import os  # sistema operativo
+import requests  # posibilita generar peticiones
+from dotenv import load_dotenv  # load_dotenv carga las variables de entorno
 
 load_dotenv()
 
-def obtener_datos_de_pruebas(pregunta):
-    api_key = os.getenv("GEMINI_API_KEY")
+# ---------- CONSTANTES ----------
+API_KEY = os.getenv("GEMINI_API_KEY")
+MODELO = "gemini-flash-latest"  # se cambia aquí si queremos otro modelo
+URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models"
 
-    modelo = "gemini-flash-latest" #el modelo que vamos a usar (lo podemos segun el modelo que queramos y se ve en la url de abajo)
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent?key={api_key}" #la url de la api   
-
-    #apy_key en ves de mandarlo en encabezado lo mandamos direcatmante por la url
+# 1) ARMAR PETICIÓN: recibe la pregunta y devuelve la url y el body
+def armar_peticion(pregunta):
+    url = f"{URL_BASE}/{MODELO}:generateContent?key={API_KEY}"
 
     body = {
         "contents": [
-        {
-            "parts":[
             {
-                "text": pregunta
+                "parts": [
+                    {"text": pregunta}
+                ]
             }
-            ]
-        }
         ]
     }
 
-    response = requests.post(url, json=body) #genera la peticion post, que va hacer guardado en la variable response
-    datos = response.json()
-    return datos["candidates"][0]["content"]["parts"][0]["text"] #imprime solo la respuesta
-    
+    return url, body
+
+
+# 2) ENVIAR PETICIÓN: recibe url y body, hace el POST y devuelve el JSON
+def enviar_peticion(url, body):
+    respuesta = requests.post(url, json=body)
+    return respuesta.json()
+
+
+# 3) EXTRAER TEXTO: recibe los datos (JSON) y saca solo el texto de la respuesta
+def extraer_texto(datos):
+    return datos["candidates"][0]["content"]["parts"][0]["text"]
+
+
+# CONEXIÓN: invoca las 3 funciones en orden
+def obtener_datos_de_pruebas(pregunta):
+    url, body = armar_peticion(pregunta)  # 1. crea url y body
+    datos = enviar_peticion(url, body)    # 2. envía la petición
+    return extraer_texto(datos)           # 3. extrae el texto
+
+
 print(obtener_datos_de_pruebas("confirma si mi conexion esta funcionando."))
