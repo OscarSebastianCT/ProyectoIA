@@ -12,6 +12,8 @@ URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models"
 
 # 1) ARMAR PETICIÓN: recibe la pregunta y devuelve la url y el body
 def armar_peticion(pregunta):
+    if not pregunta:
+        raise ValueError("La pregunta no puede estar vacia")
     url = f"{URL_BASE}/{MODELO}:generateContent?key={API_KEY}" 
     #se ve ejemplo: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3:generateContent?key=API_KEY"
 
@@ -30,13 +32,33 @@ def armar_peticion(pregunta):
 
 # 2) ENVIAR PETICIÓN: recibe url y body, hace el POST y devuelve el JSON
 def enviar_peticion(url, body):
-    respuesta = requests.post(url, json=body)
-    return respuesta.json()
+    try:
+        respuesta = requests.post(url, json=body, timeout=30) #request.post es la peticion, request es la libreria y post es el metodo
+    except requests.exceptions.ConnectionError: #ConectionError es un error de conexion especial de la libreria python
+        raise RuntimeError ("No se pudo conectar con el servidor. intenta de nuevo mas tarde")
+    except requests.exceptions.Timeout: #Timeout es un error de tiempo especial de la libreria python
+        raise RuntimeError ("No se pudo conectar con el servidor. se acabo el tiempo de espera") #RuntimeError significa error de ejecucion en tiempo de ejecucion
+    
+    if respuesta.status_code != 200:
+        raise RuntimeError (f"Error en la peticion. status code: {respuesta.status_code}")
+    try: 
+        return respuesta.json()
+    except requests.exceptions.JSONDecodeError:
+        raise RuntimeError ("la respuesta que llego no es un JSON")
+
+
+
 
 
 # 3) EXTRAER TEXTO: recibe los datos (JSON) y saca solo el texto de la respuesta
 def extraer_texto(datos):
-    return datos["candidates"][0]["content"]["parts"][0]["text"]
+    try:
+        return datos["candidates"][0]["content"]["parts"][0]["text"]
+    except (KeyError, IndexError):
+        raise RuntimeError ("la repuesta no recibe el texto generado en el lugar definido") #raise es para levantar un error
+    #runtimeerror significa error de ejecucion en tiempo de ejecucion
+
+
 
 # CONEXIÓN: invoca las 3 funciones en orden
 def obtener_datos_de_pruebas(pregunta):
@@ -44,5 +66,7 @@ def obtener_datos_de_pruebas(pregunta):
     datos = enviar_peticion(url, body)    # 2. envía la petición
     return extraer_texto(datos)           # 3. extrae el texto
 
-
-print(obtener_datos_de_pruebas("confirma si mi conexion esta funcionando."))
+try:
+    print(obtener_datos_de_pruebas("confirma si mi conexion esta funcionando."))
+except (ValueError, RuntimeError) as error: # esta linea dice 
+    print("no se puede completar la operacion", error)
