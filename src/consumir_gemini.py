@@ -6,7 +6,7 @@ load_dotenv()
 
 # ---------- CONSTANTES ----------
 API_KEY = os.getenv("GEMINI_API_KEY")
-MODELO = "gemini-flash-latest"  # se cambia aquí si queremos otro modelo
+MODELO = "gemini-3.6-flash"  # se cambia aquí si queremos otro modelo
 URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models"
 
 
@@ -64,9 +64,41 @@ def extraer_texto(datos):
 def obtener_datos_de_pruebas(pregunta):
     url, body = armar_peticion(pregunta)  # 1. crea url y body
     datos = enviar_peticion(url, body)    # 2. envía la petición
+    costo = calcular_costos(datos, 0.00000075, 0.00000375)
+    print(f"Costo de la peticion: ${costo:.6f} USD")
     return extraer_texto(datos)           # 3. extrae el texto
 
+
+def calcular_costos(datos:dict, precio_entrada:float, precio_salida:float):
+    #datos = {dic... "usageMetadata"}
+    try:
+        uso = datos["usageMetadata"] #se usa metada porque es un diccionario que contiene la informacion de uso
+
+        """"
+        uso = {
+            "promptTokenCount": 10,
+            "candidatesTokenCount": 471,
+            "totalTokenCount": 1377,
+            "promptTokensDetails": [
+                {
+                    "modality": "TEXT",
+                    "tokenCount": 10
+                }
+            ],
+            "thoughtsTokenCount": 896,
+            "serviceTier": "standard"
+        }
+        """
+        tokens_entrada = uso["promptTokenCount"] 
+        tokens_salida = uso["candidatesTokenCount"] 
+        tokens_razonamiento = uso["thoughtsTokenCount"] 
+    except KeyError as error:
+        raise RuntimeError(f"La respuesta no trae el dato de uso esperado: {error}")
+
+    costo = (tokens_entrada * precio_entrada) + (tokens_salida * precio_salida) + (tokens_razonamiento * precio_salida)
+    return costo
+
 try:
-    print(obtener_datos_de_pruebas("confirma si mi conexion esta funcionando."))
+    print(obtener_datos_de_pruebas("confirma con si, que esta funcionando."))
 except (ValueError, RuntimeError) as error: # esta linea dice 
     print("no se puede completar la operacion", error)
