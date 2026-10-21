@@ -55,7 +55,7 @@ def extraer_texto(datos):
     try:
         return datos["candidates"][0]["content"]["parts"][0]["text"]
     except (KeyError, IndexError):
-        raise RuntimeError ("la repuesta no recibe el texto generado en el lugar definido") #raise es para levantar un error
+        raise RuntimeError ("la repuesta no trae el texto generado en el lugar definido") #raise es para levantar un error
     #runtimeerror significa error de ejecucion en tiempo de ejecucion
 
 
