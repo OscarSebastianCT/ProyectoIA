@@ -1,13 +1,13 @@
 {
-  "clasificar_gasto": {
+  "clasificar_actividad": {
     "exitos": 2,
     "intentos": 2
   },
-  "sugerir_comida": {
+  "extraer_registro": {
     "exitos": 2,
     "intentos": 2
   },
-  "frecuencia_tarea": {
+  "fuente_consulta": {
     "exitos": 2,
     "intentos": 2
   }

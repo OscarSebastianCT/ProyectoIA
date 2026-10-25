@@ -1,63 +1,64 @@
 BANCO_DE_PROMPT = [
     {
-        # Clasificar un gasto de la casa
-        "nombre": "clasificar_gasto",
+        # Clasificar una actividad registrada en una hoja de trabajo
+        "nombre": "clasificar_actividad",
         "system_instruction": (
-            "Clasifica el gasto. Responde únicamente con un JSON con las claves "
-            "'categoria' (una de: 'Comida', 'Cuentas', 'Transporte', 'Hogar', 'Otro') "
-            "y 'es_necesario' (boolean)."
+            "Clasifica la actividad de obra descrita. Responde únicamente con un JSON con las "
+            "claves 'tipo' (una de: 'Mantenimiento', 'Reparación', 'Inspección', 'Instalación', "
+            "'Otro') y 'es_urgente' (boolean)."
         ),
-        "ejemplo_usuario": "Pagué la cuenta de la luz, 35.000 pesos.",
-        "claves_esperadas": ["categoria", "es_necesario"],
+        "ejemplo_usuario": "Se cambiaron 12 durmientes dañados en el km 45, tramo con restricción de velocidad.",
+        "claves_esperadas": ["tipo", "es_urgente"],
         "response_schema": {
             "type": "OBJECT",
             "properties": {
-                "categoria": {
+                "tipo": {
                     "type": "STRING",
-                    "enum": ["Comida", "Cuentas", "Transporte", "Hogar", "Otro"],
+                    "enum": ["Mantenimiento", "Reparación", "Inspección", "Instalación", "Otro"],
                 },
-                "es_necesario": {"type": "BOOLEAN"},
+                "es_urgente": {"type": "BOOLEAN"},
             },
-            "required": ["categoria", "es_necesario"],
+            "required": ["tipo", "es_urgente"],
         },
     },
     {
-        # Sugerir qué cocinar con lo que hay en el refri
-        "nombre": "sugerir_comida",
+        # Extraer datos clave de un registro de trabajo
+        "nombre": "extraer_registro",
         "system_instruction": (
-            "Sugiere un plato con los ingredientes indicados. Responde únicamente con un "
-            "JSON con las claves 'plato' (texto) y 'minutos' (número)."
+            "Extrae los datos del registro de trabajo. Responde únicamente con un JSON con las "
+            "claves 'cuadrilla' (texto), 'ubicacion' (texto) y 'horas_trabajadas' (número)."
         ),
-        "ejemplo_usuario": "Tengo arroz, huevos, una cebolla y un tomate.",
-        "claves_esperadas": ["plato", "minutos"],
+        "ejemplo_usuario": "Cuadrilla 3 trabajó en el km 120 desde las 8:00 hasta las 14:00 haciendo nivelación.",
+        "claves_esperadas": ["cuadrilla", "ubicacion", "horas_trabajadas"],
         "response_schema": {
             "type": "OBJECT",
             "properties": {
-                "plato": {"type": "STRING"},
-                "minutos": {"type": "NUMBER"},
+                "cuadrilla": {"type": "STRING"},
+                "ubicacion": {"type": "STRING"},
+                "horas_trabajadas": {"type": "NUMBER"},
             },
-            "required": ["plato", "minutos"],
+            "required": ["cuadrilla", "ubicacion", "horas_trabajadas"],
         },
     },
     {
-        # Decidir cada cuánto hacer una tarea del hogar
-        "nombre": "frecuencia_tarea",
+        # Decidir en qué fuente buscar la respuesta a una pregunta
+        "nombre": "fuente_consulta",
         "system_instruction": (
-            "Indica cada cuánto se recomienda hacer la tarea del hogar. Responde únicamente "
-            "con un JSON con la clave 'frecuencia' (una de: 'Diaria', 'Semanal', 'Mensual', "
-            "'Anual')."
+            "Indica en qué fuente de información se debe buscar la respuesta a la pregunta. "
+            "Responde únicamente con un JSON con la clave 'fuente' (una de: 'Hojas de trabajo', "
+            "'Base de datos', 'Planilla de reportes', 'Otra')."
         ),
-        "ejemplo_usuario": "Limpiar el filtro de la lavadora.",
-        "claves_esperadas": ["frecuencia"],
+        "ejemplo_usuario": "¿Cuántas pautas entregó la cuadrilla 2 la semana pasada?",
+        "claves_esperadas": ["fuente"],
         "response_schema": {
             "type": "OBJECT",
             "properties": {
-                "frecuencia": {
+                "fuente": {
                     "type": "STRING",
-                    "enum": ["Diaria", "Semanal", "Mensual", "Anual"],
+                    "enum": ["Hojas de trabajo", "Base de datos", "Planilla de reportes", "Otra"],
                 },
             },
-            "required": ["frecuencia"],
+            "required": ["fuente"],
         },
     },
 ]
