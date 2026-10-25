@@ -1,0 +1,14 @@
+{
+  "clasificar_gasto": {
+    "exitos": 2,
+    "intentos": 2
+  },
+  "sugerir_comida": {
+    "exitos": 2,
+    "intentos": 2
+  },
+  "frecuencia_tarea": {
+    "exitos": 2,
+    "intentos": 2
+  }
+}
