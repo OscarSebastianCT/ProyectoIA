@@ -72,4 +72,4 @@ Descarté **gemini-3.5-flash-lite** porque, aunque fue el más rápido (2,6 segu
 
 Descarté **gemini-3.1-flash-lite** porque, aunque es el más barato de los tres, fue el que peor contó: acertó solo el 19 % de las veces y, en la mayoría de las preguntas, se pasó por dos o tres registros.
 
-Para una aplicación de reportes no me sirve que sea rápido o barato si no puedo confiar en el número.
+Para una aplicación de reportes no me sirve que sea rápido o barato si no puedo confiar en los numeros.

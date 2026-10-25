@@ -4,7 +4,7 @@ BANCO_DE_PROMPT = [
         "nombre": "clasificar_actividad",
         "system_instruction": (
             "Clasifica la actividad de obra descrita. Responde únicamente con un JSON con las "
-            "claves 'tipo' (una de: 'Mantenimiento', 'Reparación', 'Inspección', 'Instalación', "
+            "claves 'tipo' (una de: 'Mantenimientos', 'Reparación', 'Inspección', 'Instalación', "
             "'Otro') y 'es_urgente' (boolean)."
         ),
         "ejemplo_usuario": "Se cambiaron 12 durmientes dañados en el km 45, tramo con restricción de velocidad.",
