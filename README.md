@@ -25,3 +25,8 @@ Estos pasos se completan de forma progresiva a lo largo de la Unidad U1.2, no to
 - Ningún secreto (contraseña, llave de API, token) va escrito directamente en el código ni en ningún archivo que se suba al repositorio.
 - Cada proyecto nuevo tiene su propio entorno virtual: no se comparten dependencias entre proyectos distintos.
 - Todo el trabajo que se entrega en este programa vive en un repositorio de GitHub, sin excepción.
+  
+  - Fecha: 25/10/2026
+- Encontrado: El .env.example usaba el nombre API_KEY, pero el código espera GEMINI_API_KEY; al instalar desde cero la petición fallaba con error 400.
+- Corregido: Se cambió el nombre de la variable en .env.example a GEMINI_API_KEY.
+- Resultado tras la corrección: El proyecto se instaló y ejecutó correctamente en una carpeta limpia.
