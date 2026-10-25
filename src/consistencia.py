@@ -9,7 +9,7 @@ try:
 
     for prompt in BANCO_DE_PROMPT:
             exitos = 0
-            intentos = 2
+            intentos = 3
             for intento in range (intentos):
                 url, body = armar_peticion("gemini-3.5-flash-lite",
                                             prompt["ejemplo_usuario"],

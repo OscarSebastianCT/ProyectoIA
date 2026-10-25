@@ -1,14 +1,14 @@
 {
   "clasificar_actividad": {
-    "exitos": 2,
-    "intentos": 2
+    "exitos": 3,
+    "intentos": 3
   },
   "extraer_registro": {
-    "exitos": 2,
-    "intentos": 2
+    "exitos": 3,
+    "intentos": 3
   },
   "fuente_consulta": {
-    "exitos": 2,
-    "intentos": 2
+    "exitos": 3,
+    "intentos": 3
   }
 }
