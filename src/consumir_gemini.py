@@ -45,7 +45,16 @@ def enviar_peticion(url, body):
         raise RuntimeError ("No se pudo conectar con el servidor. intenta de nuevo mas tarde")
     except requests.exceptions.Timeout: #Timeout es un error de tiempo especial de la libreria python
         raise RuntimeError ("No se pudo conectar con el servidor. se acabo el tiempo de espera") #RuntimeError significa error de ejecucion en tiempo de ejecucion
-    
+
+    if respuesta.status_code in ((401,403)): #401 es un error de autenticacion, 403 es un error de autorizacion
+        raise ValueError("credenciales invalida o no autorizada. reviasr tu GEMINI_API_KEY")
+    if respuesta.status_code >=500:
+        raise TimeoutError("el servidor no responde. intenta de nuevo mas tarde")
+    if respuesta.status_code == 429:
+        segundos = respuesta.headers.get("Retry-After")
+        mensaje = f"Limite excedido. intenta de nuevo en {segundos}s." if segundos else "Limite excedido. intenta de nuevo mas tarde"
+        raise TimeoutError("Limite excedido. intenta de nuevo mas tarde")
+
     if respuesta.status_code != 200:
         raise RuntimeError (f"Error en la peticion. status code: {respuesta.status_code}")
     try: 
@@ -80,7 +89,7 @@ def obtener_datos_de_pruebas(pregunta):
     }
 
 
-    system_instruction = "Quiero que la respuesta sea corta y precisa, maximos 3 palabras"
+    system_instruction = "eres simple y profesional "
     url, body = armar_peticion(MODELO, pregunta, system_instruction, response_schema)
 
     inicio = time.perf_counter() #empezamos a contar el tiempo
@@ -150,8 +159,8 @@ def parsear_respuesta_json(texto, claves_requeridas=None):
 if __name__ == "__main__": #Solamente ejecútalo si el archivo en el que estoy está siendo directamente ejecutado. NO LO EJECUTA EN IMPORTS
 
     try:
-        print(obtener_datos_de_pruebas("funciona mi conexcion?"))
-    except (ValueError, RuntimeError) as error: # esta linea dice 
+        print(obtener_datos_de_pruebas("¿funciona la conexion?"))
+    except (ValueError, RuntimeError, TimeoutError) as error: # esta linea dice 
         print("no se puede completar la operacion", error)
 
 
