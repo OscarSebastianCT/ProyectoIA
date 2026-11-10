@@ -5,7 +5,7 @@ from unittest.mock import patch, Mock
 
 import pytest
 
-import cliente
+from src import cliente
 from src.consumir_gemini import enviar_peticion
 
 
@@ -60,7 +60,7 @@ def test_con_reintento_agota_intentos():
         raise TimeoutError("simulado")
 
     # Reemplazamos time.sleep para que la prueba no espere de verdad
-    with patch("cliente.time.sleep"):
+    with patch("src.cliente.time.sleep"):
         # Después de 3 intentos fallidos, con_reintento debe lanzar el error
         with pytest.raises(TimeoutError):
             cliente.con_reintento(siempre_falla, intentos=3)
@@ -70,7 +70,7 @@ def test_con_reintento_no_reintenta_value_error():
     # Operación falsa que lanza ValueError (error que NO se debe reintentar)
     operacion = Mock(side_effect=ValueError("simulado"))
 
-    with patch("cliente.time.sleep") as dormir:
+    with patch("src.cliente.time.sleep") as dormir:
         with pytest.raises(ValueError):
             cliente.con_reintento(operacion)
 
@@ -105,7 +105,7 @@ def test_consultar_modelo_convierte_error():
     error_simulado = TimeoutError("simulado")
 
     with patch(
-        "cliente.con_reintento",
+        "src.cliente.con_reintento",
         side_effect=error_simulado,
     ):
         # consultar_modelo debe convertir el TimeoutError en RuntimeError

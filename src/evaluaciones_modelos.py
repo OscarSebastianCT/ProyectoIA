@@ -1,4 +1,4 @@
-import consumir_gemini
+from . import consumir_gemini
 import time
 import pandas as pd   
 
