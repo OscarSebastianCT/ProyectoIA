@@ -1,0 +1,232 @@
+[
+  {
+    "numero": 1,
+    "ot": null,
+    "consulta": "¿que es python?",
+    "referencia": "python es un lenguaje de programacion interpretado.",
+    "respuesta": "Python es un lenguaje de programación interpretado de alto nivel y propósito general creado por Guido van Rossum.",
+    "precision": 0.3333333333333333,
+    "cobertura": 0.8571428571428571,
+    "f1": 0.48
+  },
+  {
+    "numero": 2,
+    "ot": null,
+    "consulta": "¿cuando se creo python?",
+    "referencia": "python fue creado en 1991.",
+    "respuesta": "[\n  \"Python fue creado el 20-02-1991 por Guido van Rossum.\"\n]",
+    "precision": 0.3333333333333333,
+    "cobertura": 0.6,
+    "f1": 0.42857142857142855
+  },
+  {
+    "numero": 3,
+    "ot": null,
+    "consulta": "¿que es una lista en python?",
+    "referencia": "una lista en python es una coleccion ordenada y modificable.",
+    "respuesta": "[\n  \"Una lista en Python es una colección ordenada y mutable de elementos que permite almacenar diversos tipos de datos.\"\n]",
+    "precision": 0.42105263157894735,
+    "cobertura": 0.8,
+    "f1": 0.5517241379310345
+  },
+  {
+    "numero": 4,
+    "ot": "OT 1001",
+    "consulta": "¿Qué materiales se utilizaron?",
+    "referencia": "En la OT 1001 se utilizaron 1 par de eclisas, 6 pernos de eclisa y 6 golillas.",
+    "respuesta": "Se usaron 1 par de eclisas, 6 pernos de eclisa y 6 golillas.",
+    "precision": 0.9230769230769231,
+    "cobertura": 0.7058823529411765,
+    "f1": 0.8000000000000002
+  },
+  {
+    "numero": 5,
+    "ot": "OT 1002",
+    "consulta": "¿Cuánto balasto se utilizó?",
+    "referencia": "En la OT 1002 se utilizaron 12 m3 de balasto.",
+    "respuesta": "Se utilizó 12 m3 de balasto según el registro de la OT 1002.",
+    "precision": 0.6153846153846154,
+    "cobertura": 0.8,
+    "f1": 0.6956521739130435
+  },
+  {
+    "numero": 6,
+    "ot": "OT 1003",
+    "consulta": "¿Qué materiales se utilizaron?",
+    "referencia": "En la OT 1003 se utilizaron 1 porción aluminotérmica, 1 molde y 1 crisol.",
+    "respuesta": "Se usaron 1 porción aluminotérmica, 1 molde y 1 crisol.",
+    "precision": 0.9,
+    "cobertura": 0.6428571428571429,
+    "f1": 0.75
+  },
+  {
+    "numero": 7,
+    "ot": "Falla Km 152",
+    "consulta": "¿Cuáles son los materiales involucrados en esta falla?",
+    "referencia": "Los materiales involucrados en la falla son el riel, la eclisa y los pernos de eclisa.",
+    "respuesta": "Los materiales involucrados en la falla son riel, eclisa y pernos de eclisa.",
+    "precision": 1.0,
+    "cobertura": 0.8125,
+    "f1": 0.896551724137931
+  },
+  {
+    "numero": 8,
+    "ot": "OT 1001",
+    "consulta": "¿El trabajo es correctivo o preventivo?",
+    "referencia": "El trabajo de la OT 1001 es correctivo.",
+    "respuesta": "El trabajo en la OT 1001 del 03-11-2026 es de tipo correctivo.",
+    "precision": 0.6666666666666666,
+    "cobertura": 1.0,
+    "f1": 0.8
+  },
+  {
+    "numero": 9,
+    "ot": "OT 1003",
+    "consulta": "¿Qué trabajo se realizó?",
+    "referencia": "En la OT 1003 se realizó una soldadura aluminotérmica en un riel quebrado.",
+    "respuesta": "El trabajo realizado fue soldadura aluminotérmica en riel quebrado.",
+    "precision": 0.5555555555555556,
+    "cobertura": 0.38461538461538464,
+    "f1": 0.4545454545454546
+  },
+  {
+    "numero": 10,
+    "ot": "Semana 45",
+    "consulta": "¿Cuántos trabajos se realizaron en la semana?",
+    "referencia": "En la semana 45 se realizaron 6 trabajos.",
+    "respuesta": "En la semana 45 se realizaron 6 trabajos en total.",
+    "precision": 0.8,
+    "cobertura": 1.0,
+    "f1": 0.888888888888889
+  },
+  {
+    "numero": 11,
+    "ot": "Semana 45",
+    "consulta": "¿Cuántos trabajos fueron correctivos y cuántos preventivos?",
+    "referencia": "En la semana 45 hubo 4 trabajos correctivos y 2 preventivos.",
+    "respuesta": "Hubo 4 trabajos correctivos y 2 preventivos.",
+    "precision": 1.0,
+    "cobertura": 0.6363636363636364,
+    "f1": 0.7777777777777778
+  },
+  {
+    "numero": 12,
+    "ot": "OT 1001",
+    "consulta": "¿Cuántas personas trabajaron y quién fue el jefe de grupo?",
+    "referencia": "En la OT 1001 trabajaron 4 personas y el jefe de grupo fue Pedro Rojas.",
+    "respuesta": "Trabajaron 4 personas y el jefe de grupo fue Pedro Rojas.",
+    "precision": 1.0,
+    "cobertura": 0.7333333333333333,
+    "f1": 0.846153846153846
+  },
+  {
+    "numero": 13,
+    "ot": "OT 1002",
+    "consulta": "¿Quién fue el jefe de grupo?",
+    "referencia": "El jefe de grupo de la OT 1002 fue Luis Araya.",
+    "respuesta": "[\n  {\n    \"respuesta\": \"El jefe de grupo fue Luis Araya según la OT 1002.\"\n  }\n]",
+    "precision": 0.8333333333333334,
+    "cobertura": 0.9090909090909091,
+    "f1": 0.8695652173913043
+  },
+  {
+    "numero": 14,
+    "ot": "OT 1002",
+    "consulta": "¿Dónde se realizó el trabajo?",
+    "referencia": "El trabajo de la OT 1002 se realizó en el Km 210, sector Sierra Gorda.",
+    "respuesta": "[\n  {\n    \"respuesta\": \"El trabajo se realizó en Km 210, sector Sierra Gorda.\"\n  }\n]",
+    "precision": 0.9090909090909091,
+    "cobertura": 0.6666666666666666,
+    "f1": 0.7692307692307692
+  },
+  {
+    "numero": 15,
+    "ot": "Semana 45",
+    "consulta": "¿Dónde son los trabajos más frecuentes?",
+    "referencia": "Los trabajos más frecuentes fueron en el Km 152, sector Baquedano, con 3 trabajos.",
+    "respuesta": "[\n  \"Los trabajos más frecuentes son en Km 152 sector Baquedano.\"\n]",
+    "precision": 0.9,
+    "cobertura": 0.6428571428571429,
+    "f1": 0.75
+  },
+  {
+    "numero": 16,
+    "ot": "Semana 45",
+    "consulta": "¿Qué OT se realizaron en el sector Sierra Gorda?",
+    "referencia": "En el sector Sierra Gorda se realizaron las OT 1002 y 1006.",
+    "respuesta": "[\n  \"En el sector Sierra Gorda se realizaron las OT 1002 y 1006.\"\n]",
+    "precision": 1.0,
+    "cobertura": 1.0,
+    "f1": 1.0
+  },
+  {
+    "numero": 17,
+    "ot": "Semana 45",
+    "consulta": "¿Qué trabajo se hizo en Carmen Alto y de qué tipo fue?",
+    "referencia": "En Carmen Alto se hizo una inspección de cambio de tipo preventivo.",
+    "respuesta": "[{\"respuesta\": \"En Carmen Alto se hizo inspección de cambio y fue de tipo preventivo.\"}]",
+    "precision": 0.7857142857142857,
+    "cobertura": 0.9166666666666666,
+    "f1": 0.8461538461538461
+  },
+  {
+    "numero": 18,
+    "ot": "Falla Km 152",
+    "consulta": "¿Dónde ocurrió la falla?",
+    "referencia": "La falla ocurrió en el Km 152, sector Baquedano.",
+    "respuesta": "La falla ocurrió en el Km 152, sector Baquedano.",
+    "precision": 1.0,
+    "cobertura": 1.0,
+    "f1": 1.0
+  },
+  {
+    "numero": 19,
+    "ot": "OT 1002",
+    "consulta": "¿Cuántas horas duró el trabajo?",
+    "referencia": "El trabajo de la OT 1002 duró 6 horas.",
+    "respuesta": "El trabajo duró 6 horas según el registro OT 1002.",
+    "precision": 0.7,
+    "cobertura": 0.7777777777777778,
+    "f1": 0.7368421052631577
+  },
+  {
+    "numero": 20,
+    "ot": "OT 1003",
+    "consulta": "¿En qué fecha se realizó el trabajo?",
+    "referencia": "La OT 1003 se realizó el 05-11-2026.",
+    "respuesta": "[\n  {\n    \"respuesta\": \"El trabajo de la OT 1003 se realizó en la fecha 05-11-2026.\"\n  }\n]",
+    "precision": 0.5384615384615384,
+    "cobertura": 1.0,
+    "f1": 0.7000000000000001
+  },
+  {
+    "numero": 21,
+    "ot": "Falla Km 152",
+    "consulta": "¿Cuál fue el primer por qué de la falla?",
+    "referencia": "El riel se quebró porque tenía una fisura.",
+    "respuesta": "El primer por qué fue que el riel tenía una fisura.",
+    "precision": 0.45454545454545453,
+    "cobertura": 0.625,
+    "f1": 0.5263157894736842
+  },
+  {
+    "numero": 22,
+    "ot": "Falla Km 152",
+    "consulta": "¿Cuál es la causa raíz según los 5 porqués?",
+    "referencia": "La causa raíz es que la pauta de mantenimiento no incluía el reapriete de pernos.",
+    "respuesta": "La causa raíz es que la pauta de mantenimiento no incluía el reapriete de pernos.",
+    "precision": 1.0,
+    "cobertura": 1.0,
+    "f1": 1.0
+  },
+  {
+    "numero": 23,
+    "ot": "Falla Km 152",
+    "consulta": "¿Qué acción recomiendas para que la falla no se repita?",
+    "referencia": "Se debe incluir el reapriete de pernos de eclisa en la pauta de mantenimiento.",
+    "respuesta": "[\n  \"Se recomienda incluir el reapriete de pernos en la pauta de mantenimiento del Km 152.\"\n]",
+    "precision": 0.7333333333333333,
+    "cobertura": 0.7857142857142857,
+    "f1": 0.7586206896551724
+  }
+]
