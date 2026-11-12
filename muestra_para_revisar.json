@@ -1,0 +1,102 @@
+[
+  {
+    "numero": 2,
+    "ot": null,
+    "consulta": "¿cuando se creo python?",
+    "referencia": "python fue creado en 1991.",
+    "respuesta": "[\n  \"Python fue creado el 20-02-1991 por Guido van Rossum.\"\n]",
+    "precision": 0.3333333333333333,
+    "cobertura": 0.6,
+    "f1": 0.42857142857142855
+  },
+  {
+    "numero": 9,
+    "ot": "OT 1003",
+    "consulta": "¿Qué trabajo se realizó?",
+    "referencia": "En la OT 1003 se realizó una soldadura aluminotérmica en un riel quebrado.",
+    "respuesta": "El trabajo realizado fue soldadura aluminotérmica en riel quebrado.",
+    "precision": 0.5555555555555556,
+    "cobertura": 0.38461538461538464,
+    "f1": 0.4545454545454546
+  },
+  {
+    "numero": 1,
+    "ot": null,
+    "consulta": "¿que es python?",
+    "referencia": "python es un lenguaje de programacion interpretado.",
+    "respuesta": "Python es un lenguaje de programación interpretado de alto nivel y propósito general creado por Guido van Rossum.",
+    "precision": 0.3333333333333333,
+    "cobertura": 0.8571428571428571,
+    "f1": 0.48
+  },
+  {
+    "numero": 21,
+    "ot": "Falla Km 152",
+    "consulta": "¿Cuál fue el primer por qué de la falla?",
+    "referencia": "El riel se quebró porque tenía una fisura.",
+    "respuesta": "El primer por qué fue que el riel tenía una fisura.",
+    "precision": 0.45454545454545453,
+    "cobertura": 0.625,
+    "f1": 0.5263157894736842
+  },
+  {
+    "numero": 3,
+    "ot": null,
+    "consulta": "¿que es una lista en python?",
+    "referencia": "una lista en python es una coleccion ordenada y modificable.",
+    "respuesta": "[\n  \"Una lista en Python es una colección ordenada y mutable de elementos que permite almacenar diversos tipos de datos.\"\n]",
+    "precision": 0.42105263157894735,
+    "cobertura": 0.8,
+    "f1": 0.5517241379310345
+  },
+  {
+    "numero": 10,
+    "ot": "Semana 45",
+    "consulta": "¿Cuántos trabajos se realizaron en la semana?",
+    "referencia": "En la semana 45 se realizaron 6 trabajos.",
+    "respuesta": "En la semana 45 se realizaron 6 trabajos en total.",
+    "precision": 0.8,
+    "cobertura": 1.0,
+    "f1": 0.888888888888889
+  },
+  {
+    "numero": 7,
+    "ot": "Falla Km 152",
+    "consulta": "¿Cuáles son los materiales involucrados en esta falla?",
+    "referencia": "Los materiales involucrados en la falla son el riel, la eclisa y los pernos de eclisa.",
+    "respuesta": "Los materiales involucrados en la falla son riel, eclisa y pernos de eclisa.",
+    "precision": 1.0,
+    "cobertura": 0.8125,
+    "f1": 0.896551724137931
+  },
+  {
+    "numero": 16,
+    "ot": "Semana 45",
+    "consulta": "¿Qué OT se realizaron en el sector Sierra Gorda?",
+    "referencia": "En el sector Sierra Gorda se realizaron las OT 1002 y 1006.",
+    "respuesta": "[\n  \"En el sector Sierra Gorda se realizaron las OT 1002 y 1006.\"\n]",
+    "precision": 1.0,
+    "cobertura": 1.0,
+    "f1": 1.0
+  },
+  {
+    "numero": 18,
+    "ot": "Falla Km 152",
+    "consulta": "¿Dónde ocurrió la falla?",
+    "referencia": "La falla ocurrió en el Km 152, sector Baquedano.",
+    "respuesta": "La falla ocurrió en el Km 152, sector Baquedano.",
+    "precision": 1.0,
+    "cobertura": 1.0,
+    "f1": 1.0
+  },
+  {
+    "numero": 22,
+    "ot": "Falla Km 152",
+    "consulta": "¿Cuál es la causa raíz según los 5 porqués?",
+    "referencia": "La causa raíz es que la pauta de mantenimiento no incluía el reapriete de pernos.",
+    "respuesta": "La causa raíz es que la pauta de mantenimiento no incluía el reapriete de pernos.",
+    "precision": 1.0,
+    "cobertura": 1.0,
+    "f1": 1.0
+  }
+]
